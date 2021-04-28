@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{>header}}
+    {{>navbar}}
+  <div class="container d-flex flex-column justify-content-center align-items-center ">
+    <form action="/register" method="POST">
+      <div class="form-group row">
+        <div class="col-sm-1-12 m-3">
+          <h2>Registration Form</h2>
+        </div>
+      </div>
+      <fieldset class="form-group  ">
+        
+          <div class="row">
+            <div class="col">
+              <input type="text" name="firstname" class="form-control m-1" placeholder="First name*">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control m-1"  name="lastname" placeholder="Last name*">
+            </div>
+          </div>
+          <input type="email" class="form-control m-2" name="email" id="" aria-describedby="emailHelpId"
+            placeholder="Enter your email id">
+
+
+          <input type="password" class="form-control m-2" value="" name="password" id="" placeholder="Enter your password">
+     
+          <input type="password" class="form-control m-2" name="confirmpassword" id="" placeholder="confirm your password">
+       
+
+        <div class="form-group ">
+          <div class=" col-11 m-4">
+            <button type="submit" class="btn btn-outline-success  btn-lg btn-block" value="Register">Register</button>
+          </div>
+        </div>
+    </form>
+  </div>
+  </fieldset>
+<!--<script>
+    $("#inputPassword4").on("focusout", function () {
+  if ($(this).val() != $("#inputPassword5").val()) {
+    $("#inputPassword5").removeClass("valid").addClass("invalid");
+  } else {
+    $("#inputPassword5").removeClass("invalid").addClass("valid");
+  }
+});
+
+$("#password2").on("keyup", function () {
+  if ($("#password").val() != $(this).val()) {
+    $(this).removeClass("valid").addClass("invalid");
+  } else {
+    $(this).removeClass("invalid").addClass("valid");
+  }
+});
+</script>-->
+
+</body>
+</html>
