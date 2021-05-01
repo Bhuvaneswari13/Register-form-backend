@@ -75,7 +75,7 @@ app.post("/login", async (req, res) =>{
         }
         //Testing
         //res.send(useremail.password);
-        //console.log(useremail);
+        
         //console.log(`${email} and password is ${password}`);
         
     }catch(error){
@@ -83,6 +83,29 @@ app.post("/login", async (req, res) =>{
     }
 })
 
+app.get("/members", (req, res) =>{
+    res.render("members");
+    //Register.find({}, function(err,docs){
+      //  if(err)
+       // res.json(err);
+        //else
+        //res.render("members", {Register: docs});
+    //});
+})
+
+app.post("/members", async (req,res) => {
+    try{
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const useremail = await Register.findOne({email:email});
+        res.send(useremail);
+        //console.log(`${email}`);
+        
+  }catch(error){
+    res.status(400).send("Invalid details");
+  }
+})
 
 //login validation check
 app.listen(port, () => {
