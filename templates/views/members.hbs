@@ -1,10 +1,40 @@
     {{>header}}
     {{>navbar}}
+    <div class="container d-flex flex-column justify-content-center align-items-center ">
+    <h2 style="text-align: center;">Members List</h2>     
     <form action="/members" method="POST">
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "email" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="exampleInputEmail1"></label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "email" placeholder="Search By Email address">
   </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
 </form>
+<br>
+<hr/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">password</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each members}}
+    <tr>
+      <td>{{this.firstname}}</td>
+      <td>{{this.lastname}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.password}}</td>
+      <td>
+        <a><i class="fa fa-pencil fa-lg" arial-hidden="true"></i></a>
+        <a><i class="fa fa-trash fa-lg" arial-hidden="true"></i></a>
+      </td>
+    </tr>
+    {{/each}}
+    <tr>
+  </tbody>
+</table>
+<h3><a class="btn btn-outline-info btn-lg btn-block" href="/register"><i class="fa fa-plus"></i> Create New</a></h3>
+</div>

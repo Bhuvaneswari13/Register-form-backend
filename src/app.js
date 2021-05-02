@@ -84,7 +84,16 @@ app.post("/login", async (req, res) =>{
 })
 
 app.get("/members", (req, res) =>{
-    res.render("members");
+    Register.find((err, docs) =>{
+        if(!err){
+            res.render("members", {
+                members: docs
+            });
+        }
+        else {
+            console.log("Error in retrieving members list: "+ err);
+        }
+    });
     //Register.find({}, function(err,docs){
       //  if(err)
        // res.json(err);
@@ -93,19 +102,32 @@ app.get("/members", (req, res) =>{
     //});
 })
 
+
 app.post("/members", async (req,res) => {
     try{
         const email = req.body.email;
-        const password = req.body.password;
-
+        //const password = req.body.password;
         const useremail = await Register.findOne({email:email});
         res.send(useremail);
         //console.log(`${email}`);
+    }catch(error){
+        res.status(400).send(error);
+      }
+    })
+         /*Register.find((err, docs) =>{
+        if(!err){
+            res.render("views/members", {
+                members: docs
+            });
+        }
+        else {
+            console.log("Error in retrieving members list: "+ err);
+        }
+    });*/
+
+
         
-  }catch(error){
-    res.status(400).send("Invalid details");
-  }
-})
+  
 
 //login validation check
 app.listen(port, () => {
