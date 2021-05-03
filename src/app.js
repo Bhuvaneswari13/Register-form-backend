@@ -102,7 +102,7 @@ app.get("/members", (req, res) =>{
     //});
 })
 
-
+//Testing for retriveing by email id
 app.post("/members", async (req,res) => {
     try{
         const email = req.body.email;
@@ -114,22 +114,12 @@ app.post("/members", async (req,res) => {
         res.status(400).send(error);
       }
     })
-         /*Register.find((err, docs) =>{
-        if(!err){
-            res.render("views/members", {
-                members: docs
-            });
-        }
-        else {
-            console.log("Error in retrieving members list: "+ err);
-        }
-    });*/
+      
 
+/*app.get('/:id', (req,res,next) => {
+    //console.log(req.params.id);
+})*/
 
-        
-  
-
-//login validation check
 app.listen(port, () => {
     console.log(`server is running at port no ${port}`);
 })

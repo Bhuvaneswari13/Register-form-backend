@@ -10,14 +10,15 @@
     {{>header}}
     {{>navbar}}
   <div class="container d-flex flex-column justify-content-center align-items-center ">
-    <form action="/register" method="POST">
+      
       <div class="form-group row">
         <div class="col-sm-1-12 m-3">
           <h2>Registration Form</h2>
         </div>
       </div>
-      <fieldset class="form-group  ">
-        
+  <form action="/register" method="POST">
+     <!-- <input type="hidden" name="_id" value="{{register._id}}">-->
+      <fieldset class="form-group">
           <div class="row">
             <div class="col">
               <input type="text" name="firstname" class="form-control m-1" placeholder="First name*">
@@ -42,9 +43,9 @@
             <h3><a class="btn btn-info btn-lg btn-block" href="/members"><i class="fa fa-list-alt"></i> View all</a></h3>
           </div>
         </div>
-    </form>
   </div>
   </fieldset>
+  </form>
 <!--<script>
     $("#inputPassword4").on("focusout", function () {
   if ($(this).val() != $("#inputPassword5").val()) {
